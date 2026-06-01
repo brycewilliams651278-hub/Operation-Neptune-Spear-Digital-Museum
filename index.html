@@ -1,0 +1,526 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,400&family=Share+Tech+Mono&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#0a0e1a;
+  --navy2:#0f1624;
+  --navy3:#1a2234;
+  --gold:#c8960c;
+  --gold2:#f0b429;
+  --red:#8b1a1a;
+  --red2:#c0392b;
+  --text:#e8e4d8;
+  --text2:#a09880;
+  --border:#2a3550;
+  --accent:#1e3a5f;
+}
+
+body{background:var(--navy);color:var(--text);font-family:'Source Serif 4',serif;line-height:1.7;overflow-x:hidden}
+
+.museum{max-width:860px;margin:0 auto;padding:0 0 4rem}
+
+/* HERO */
+.hero{
+  background:linear-gradient(180deg,#000 0%,var(--navy2) 60%,var(--navy) 100%);
+  border-bottom:1px solid var(--border);
+  padding:3rem 2rem 2.5rem;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:repeating-linear-gradient(0deg,transparent,transparent 39px,rgba(255,255,255,0.03) 40px),
+             repeating-linear-gradient(90deg,transparent,transparent 39px,rgba(255,255,255,0.03) 40px);
+}
+.hero-badge{
+  display:inline-block;font-family:'Share Tech Mono',monospace;font-size:11px;letter-spacing:4px;
+  color:var(--gold);border:1px solid var(--gold);padding:4px 16px;margin-bottom:1.5rem;
+  text-transform:uppercase;position:relative;
+}
+.hero h1{
+  font-family:'Oswald',sans-serif;font-size:clamp(2rem,5vw,3.2rem);font-weight:700;
+  letter-spacing:2px;line-height:1.1;margin-bottom:.5rem;text-transform:uppercase;
+  color:#fff;position:relative;
+}
+.hero h1 span{color:var(--gold)}
+.hero-sub{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:300;color:var(--text2);letter-spacing:3px;text-transform:uppercase;margin-bottom:1.8rem;position:relative;}
+.hero-meta{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;position:relative;}
+.hero-meta-item{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--text2);letter-spacing:1px;}
+.hero-meta-item span{color:var(--gold2);display:block;font-size:13px;font-weight:600;}
+
+/* NAV */
+.nav{
+  background:var(--navy2);border-bottom:1px solid var(--border);
+  display:flex;overflow-x:auto;scrollbar-width:none;
+  position:sticky;top:0;z-index:100;
+}
+.nav::-webkit-scrollbar{display:none}
+.nav-btn{
+  font-family:'Oswald',sans-serif;font-size:12px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--text2);padding:14px 20px;border:none;background:none;cursor:pointer;
+  white-space:nowrap;border-bottom:2px solid transparent;transition:all .2s;
+}
+.nav-btn.active,.nav-btn:hover{color:var(--gold);border-bottom-color:var(--gold)}
+
+/* SECTIONS */
+.section{padding:3rem 2rem;border-bottom:1px solid var(--border);}
+.section-label{
+  font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:4px;
+  color:var(--gold);text-transform:uppercase;margin-bottom:.6rem;
+}
+.section-title{
+  font-family:'Oswald',sans-serif;font-size:1.8rem;font-weight:600;
+  letter-spacing:1px;text-transform:uppercase;color:#fff;margin-bottom:1.5rem;
+  padding-bottom:.8rem;border-bottom:1px solid var(--border);
+}
+
+/* WHAT HAPPENED */
+.context-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin:1.5rem 0}
+.context-card{
+  background:var(--navy2);border:1px solid var(--border);border-left:3px solid var(--gold);
+  padding:1.2rem;
+}
+.context-card h4{font-family:'Oswald',sans-serif;font-size:.9rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold2);margin-bottom:.5rem;}
+.context-card p{font-size:.88rem;color:var(--text2);line-height:1.6;}
+
+.highlight-box{
+  background:var(--accent);border:1px solid #2a4a7f;border-left:4px solid var(--gold2);
+  padding:1.2rem 1.5rem;margin:1.5rem 0;
+}
+.highlight-box p{font-size:.92rem;line-height:1.7;}
+
+.body-text{font-size:.95rem;color:var(--text);line-height:1.8;margin-bottom:1rem;}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:2rem}
+.timeline::before{content:'';position:absolute;left:0;top:0;bottom:0;width:1px;background:var(--border)}
+.tl-item{position:relative;margin-bottom:1.8rem;padding-left:1.5rem;}
+.tl-item::before{
+  content:'';position:absolute;left:-2rem;top:6px;width:10px;height:10px;
+  border-radius:50%;background:var(--gold);border:2px solid var(--navy2);
+}
+.tl-year{font-family:'Share Tech Mono',monospace;font-size:11px;color:var(--gold);letter-spacing:2px;margin-bottom:.2rem;}
+.tl-title{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:500;color:#fff;letter-spacing:1px;margin-bottom:.3rem;text-transform:uppercase;}
+.tl-desc{font-size:.88rem;color:var(--text2);line-height:1.6;}
+
+/* PEOPLE */
+.people-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5rem}
+.person-card{background:var(--navy2);border:1px solid var(--border);padding:1.5rem;position:relative;overflow:hidden;}
+.person-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--red2);}
+.person-initials{
+  width:52px;height:52px;border-radius:50%;background:var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Oswald',sans-serif;font-size:1.1rem;font-weight:700;color:var(--gold2);
+  margin-bottom:1rem;border:2px solid var(--border);
+}
+.person-name{font-family:'Oswald',sans-serif;font-size:1.05rem;font-weight:600;color:#fff;letter-spacing:1px;text-transform:uppercase;}
+.person-role{font-family:'Share Tech Mono',monospace;font-size:10px;color:var(--gold);letter-spacing:2px;margin:.3rem 0 .8rem;text-transform:uppercase;}
+.person-desc{font-size:.85rem;color:var(--text2);line-height:1.6;}
+
+/* EFFECTS */
+.effects-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:1.5rem}
+.effect-card{background:var(--navy2);border:1px solid var(--border);padding:1.3rem;}
+.effect-card.short{border-top:3px solid var(--gold2);}
+.effect-card.long{border-top:3px solid var(--red2);}
+.effect-label{font-family:'Share Tech Mono',monospace;font-size:10px;letter-spacing:3px;color:var(--text2);text-transform:uppercase;margin-bottom:.5rem;}
+.effect-title{font-family:'Oswald',sans-serif;font-size:.95rem;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:1px;margin-bottom:.6rem;}
+.effect-desc{font-size:.85rem;color:var(--text2);line-height:1.6;}
+
+/* IMAGES */
+.images-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1rem;margin-top:1.5rem}
+.img-card{background:var(--navy3);border:1px solid var(--border);overflow:hidden;}
+.img-placeholder{
+  height:160px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:var(--navy2);gap:.5rem;
+}
+.img-icon{font-size:2rem;color:var(--border)}
+.img-caption{padding:.8rem 1rem;font-size:.8rem;color:var(--text2);font-style:italic;line-height:1.4;}
+.img-source{font-family:'Share Tech Mono',monospace;font-size:9px;color:var(--gold);letter-spacing:1px;display:block;margin-top:.3rem;}
+
+/* CONNECTIONS */
+.connection-item{
+  display:flex;gap:1rem;padding:1.2rem;background:var(--navy2);
+  border:1px solid var(--border);margin-bottom:1rem;
+}
+.connection-icon{font-size:1.8rem;flex-shrink:0;}
+.connection-title{font-family:'Oswald',sans-serif;font-size:1rem;font-weight:600;color:var(--gold2);text-transform:uppercase;letter-spacing:1px;margin-bottom:.3rem;}
+.connection-desc{font-size:.88rem;color:var(--text2);line-height:1.6;}
+
+/* WHY IT MATTERS */
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1.5rem}
+.why-item{
+  background:var(--navy2);border:1px solid var(--border);padding:1.3rem;
+  border-bottom:3px solid var(--gold);
+}
+.why-num{font-family:'Oswald',sans-serif;font-size:2.5rem;font-weight:700;color:var(--border);line-height:1;}
+.why-title{font-family:'Oswald',sans-serif;font-size:.9rem;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:1px;margin:.4rem 0;}
+.why-desc{font-size:.82rem;color:var(--text2);line-height:1.5;}
+
+/* CLASSIFIED BANNER */
+.classified{
+  background:var(--red);border:2px solid var(--red2);
+  font-family:'Share Tech Mono',monospace;font-size:12px;letter-spacing:4px;
+  text-transform:uppercase;color:#fff;text-align:center;padding:.6rem;margin:1.5rem 0;
+}
+
+/* TABS */
+.hidden{display:none}
+.active-section{display:block}
+</style>
+
+<h2 class="sr-only">Operation Neptune Spear Digital Museum — educational historical overview of the 2011 mission</h2>
+
+<div class="museum">
+
+<div class="hero">
+  <div class="hero-badge">Declassified · Educational Archive</div>
+  <h1>Operation<br><span>Neptune Spear</span></h1>
+  <div class="hero-sub">The Decade-Long Hunt That Changed Modern History</div>
+  <div class="hero-meta">
+    <div class="hero-meta-item">Date<span>May 1–2, 2011</span></div>
+    <div class="hero-meta-item">Location<span>Abbottabad, Pakistan</span></div>
+    <div class="hero-meta-item">Duration<span>~40 Minutes</span></div>
+    <div class="hero-meta-item">Authorized By<span>President Obama</span></div>
+    <div class="hero-meta-item">Executed By<span>SEAL Team Six</span></div>
+  </div>
+</div>
+
+<nav class="nav" role="navigation" aria-label="Museum sections">
+  <button class="nav-btn active" onclick="showSection('what')">What Happened</button>
+  <button class="nav-btn" onclick="showSection('who')">Who Was Involved</button>
+  <button class="nav-btn" onclick="showSection('effects')">Effects</button>
+  <button class="nav-btn" onclick="showSection('connections')">Today's Connections</button>
+  <button class="nav-btn" onclick="showSection('why')">Why It Matters</button>
+  <button class="nav-btn" onclick="showSection('images')">Images & Maps</button>
+</nav>
+
+<!-- SECTION 1: WHAT HAPPENED -->
+<div id="sec-what" class="section active-section">
+  <div class="section-label">Section 01</div>
+  <div class="section-title">What Happened?</div>
+
+  <p class="body-text">On the night of May 1–2, 2011, U.S. Navy SEALs conducted a covert raid on a walled compound in Abbottabad, Pakistan, killing Osama bin Laden — the founder of al-Qaeda and the mastermind behind the September 11, 2001 terrorist attacks. The mission, codenamed <strong>Operation Neptune Spear</strong>, ended a nearly decade-long global manhunt.</p>
+
+  <div class="classified">⬛ Historical Context — Required Background ⬛</div>
+
+  <div class="section-label" style="margin-top:1.5rem">Historical Background</div>
+
+  <div class="context-grid">
+    <div class="context-card">
+      <h4>The Rise of al-Qaeda (1988–2001)</h4>
+      <p>Osama bin Laden founded al-Qaeda ("The Base") in 1988 during the Soviet-Afghan War. Funded partly by bin Laden's personal wealth and ideologically rooted in radical Islamist extremism, al-Qaeda sought to drive Western influence from Muslim-majority countries through violence. By the late 1990s, it had become a global terrorist network responsible for bombings of U.S. embassies in Kenya and Tanzania (1998) and the USS Cole (2000).</p>
+    </div>
+    <div class="context-card">
+      <h4>September 11, 2001</h4>
+      <p>On September 11, 2001, al-Qaeda operatives hijacked four commercial airplanes. Two were flown into the World Trade Center towers in New York City, one into the Pentagon, and a fourth crashed in a Pennsylvania field after passengers revolted. Nearly 3,000 people were killed — the deadliest terrorist attack in history. The U.S. and the world were forever changed.</p>
+    </div>
+    <div class="context-card">
+      <h4>The War in Afghanistan (2001–)</h4>
+      <p>Within weeks of 9/11, the U.S. invaded Afghanistan under President George W. Bush, targeting the Taliban regime that sheltered al-Qaeda. Bin Laden fled the Tora Bora mountain region in late 2001, evading capture. For the next decade, the CIA and military intelligence agencies conducted one of the most extensive manhunts in history.</p>
+    </div>
+    <div class="context-card">
+      <h4>The Courier Trail (2007–2010)</h4>
+      <p>CIA analysts identified a trusted courier known as Abu Ahmed al-Kuwaiti, who was believed to be in contact with bin Laden. Using signals intelligence (SIGINT) and human intelligence (HUMINT), the CIA tracked him to a large, unusually fortified compound in Abbottabad, Pakistan — just a mile from Pakistan's leading military academy. Analysts spent years building their case.</p>
+    </div>
+  </div>
+
+  <div class="highlight-box">
+    <p>By early 2011, CIA Director Leon Panetta briefed President Barack Obama that analysts assessed with <strong>~60–80% confidence</strong> that bin Laden was living in the compound. Obama approved the mission on April 29, 2011, selecting a Navy SEAL helicopter raid over an airstrike to allow for positive identification.</p>
+  </div>
+
+  <div class="section-label" style="margin-top:1.5rem">The Mission — Minute by Minute</div>
+
+  <div class="timeline">
+    <div class="tl-item">
+      <div class="tl-year">11:00 PM, May 1, 2011 (Local)</div>
+      <div class="tl-title">Helicopter Insertion</div>
+      <div class="tl-desc">Two modified stealth MH-60 Black Hawk helicopters carrying approximately 25 Navy SEALs of DEVGRU (SEAL Team Six) and a CIA interpreter depart Jalalabad, Afghanistan, flying at low altitude to avoid Pakistani radar.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">Arrival at Compound</div>
+      <div class="tl-title">First Helicopter Crashes</div>
+      <div class="tl-desc">One Black Hawk loses lift due to an aerodynamic effect caused by higher-than-anticipated temperatures and hits the compound wall. The crew and SEALs are uninjured. The mission proceeds using the backup Chinook helicopters on standby.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">Inside the Compound</div>
+      <div class="tl-title">Breach and Clear</div>
+      <div class="tl-desc">SEALs breach compound walls and doors, moving room-by-room in a "clear" formation. Three men — including bin Laden's courier and his brother — are killed in the lower structures. Bin Laden's adult son is killed on the second floor.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">~11:40 PM</div>
+      <div class="tl-title">Bin Laden Killed</div>
+      <div class="tl-desc">SEALs reach the third floor. Osama bin Laden is encountered and fatally shot. His identity is confirmed on-site through physical measurements and later by DNA testing. The operation from insertion to extraction lasts approximately 40 minutes.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">After the Raid</div>
+      <div class="tl-title">Extraction & Burial at Sea</div>
+      <div class="tl-desc">SEALs depart with bin Laden's body, hard drives, documents, and other intelligence material. The crashed Black Hawk is destroyed to prevent reverse-engineering. Bin Laden's body is later buried at sea from the USS Carl Vinson to prevent any shrine from being created.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-year">11:35 PM EDT, May 1 (U.S. Time)</div>
+      <div class="tl-title">President Obama Addresses the Nation</div>
+      <div class="tl-desc">"Tonight, I can report to the American people and to the world that the United States has conducted an operation that killed Osama bin Laden, the leader of al-Qaeda." Crowds gather spontaneously outside the White House and at Ground Zero in New York City.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: WHO WAS INVOLVED -->
+<div id="sec-who" class="section hidden">
+  <div class="section-label">Section 02</div>
+  <div class="section-title">Who Was Involved?</div>
+  <p class="body-text">Four key figures whose decisions, actions, and roles directly determined the outcome of Operation Neptune Spear and the decade-long hunt that preceded it.</p>
+
+  <div class="people-grid">
+    <div class="person-card">
+      <div class="person-initials">BO</div>
+      <div class="person-name">Barack Obama</div>
+      <div class="person-role">44th President of the United States</div>
+      <div class="person-desc">Obama inherited the manhunt for bin Laden upon taking office in 2009 and made it a priority mission. On April 29, 2011, after months of CIA briefings and weighing the risks of a failed mission on Pakistani soil, he gave the final "go" order — making one of the most consequential decisions in modern presidential history. He monitored the live operation from the White House Situation Room. His choice of a ground raid over an airstrike allowed for physical confirmation of bin Laden's death, a detail that proved historically vital.</div>
+    </div>
+    <div class="person-card">
+      <div class="person-initials">LP</div>
+      <div class="person-name">Leon Panetta</div>
+      <div class="person-role">CIA Director (2009–2011)</div>
+      <div class="person-desc">As CIA Director, Panetta oversaw the intelligence operation that identified the Abbottabad compound and championed the mission plan. He briefed Obama repeatedly as the case against bin Laden's presence strengthened. Panetta served as the operational commander during the raid, communicating with the SEAL team from CIA headquarters in Langley, Virginia. His advocacy for action — even with uncertainty — was critical to the mission moving forward. He later served as Secretary of Defense.</div>
+    </div>
+    <div class="person-card">
+      <div class="person-initials">OBL</div>
+      <div class="person-name">Osama bin Laden</div>
+      <div class="person-role">Founder & Leader, al-Qaeda</div>
+      <div class="person-desc">Bin Laden orchestrated the September 11 attacks and dozens of other terrorist operations worldwide. After fleeing U.S. forces at Tora Bora in 2001, he spent roughly six years in the remote tribal regions of Pakistan before settling in the Abbottabad compound around 2005. Far from being in a remote cave as many assumed, he was living in a large, deliberately built compound in a Pakistani city. His death did not eliminate al-Qaeda but decapitated its leadership and delivered a profound symbolic blow to the organization.</div>
+    </div>
+    <div class="person-card">
+      <div class="person-initials">ST6</div>
+      <div class="person-name">SEAL Team Six (DEVGRU)</div>
+      <div class="person-role">U.S. Naval Special Warfare Dev. Group</div>
+      <div class="person-desc">The Naval Special Warfare Development Group (DEVGRU), publicly known as SEAL Team Six, is the U.S. military's elite counter-terrorism unit. Selected for the mission due to their unmatched expertise in hostage rescue and high-value target raids, the roughly 25 SEALs spent weeks rehearsing the raid at a full-scale mock-up of the compound. They adapted seamlessly when the helicopter crashed, a sign of their extraordinary training. Individual operators' identities remain classified. Their actions that night were awarded the Presidential Unit Citation.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 3: EFFECTS -->
+<div id="sec-effects" class="section hidden">
+  <div class="section-label">Section 03</div>
+  <div class="section-title">Short & Long-Term Effects</div>
+  <p class="body-text">The death of Osama bin Laden sent shockwaves through international security, politics, and geopolitics — with effects that unfolded both immediately and over the following decade.</p>
+
+  <div class="effects-grid">
+    <div class="effect-card short">
+      <div class="effect-label">Short-Term</div>
+      <div class="effect-title">National Celebration & Relief</div>
+      <div class="effect-desc">Americans gathered spontaneously at the White House, Ground Zero, and Times Square in a wave of national catharsis. For families of 9/11 victims, the news brought complicated grief, closure, and renewed mourning. Obama's approval ratings surged briefly.</div>
+    </div>
+    <div class="effect-card short">
+      <div class="effect-label">Short-Term</div>
+      <div class="effect-title">Diplomatic Crisis with Pakistan</div>
+      <div class="effect-desc">Pakistan was not informed of the raid beforehand. The discovery that bin Laden lived near Pakistan's top military academy for years deeply strained U.S.-Pakistan relations, raising serious questions about Pakistani complicity or incompetence. Relations remain complicated today.</div>
+    </div>
+    <div class="effect-card short">
+      <div class="effect-label">Short-Term</div>
+      <div class="effect-title">Al-Qaeda Reacts, Ayman al-Zawahiri Takes Over</div>
+      <div class="effect-desc">Al-Qaeda vowed retaliation and elevated deputy Ayman al-Zawahiri to lead the organization. However, the leadership transition exposed internal fractures and accelerated the network's decentralization, weakening its ability to plan large-scale attacks.</div>
+    </div>
+    <div class="effect-card short">
+      <div class="effect-label">Short-Term</div>
+      <div class="effect-title">Intelligence Goldmine</div>
+      <div class="effect-desc">SEALs retrieved hard drives, flash drives, DVDs, and documents from the compound — what officials called the "largest collection of senior terrorist materials ever." Analysis of this intelligence led to further counter-terrorism operations worldwide.</div>
+    </div>
+    <div class="effect-card long">
+      <div class="effect-label">Long-Term</div>
+      <div class="effect-title">Rise of ISIS</div>
+      <div class="effect-desc">Without bin Laden's centralizing leadership, al-Qaeda splintered. One of its most violent offshoots — the Islamic State in Iraq and Syria (ISIS) — grew dramatically from 2013 onward, seizing vast territory and carrying out mass atrocities. The death of bin Laden did not end jihadist terrorism; it fragmented it into more decentralized, harder-to-target forms.</div>
+    </div>
+    <div class="effect-card long">
+      <div class="effect-label">Long-Term</div>
+      <div class="effect-title">Endless War Continues</div>
+      <div class="effect-desc">Despite the mission's success, the Afghanistan War continued for another decade. U.S. forces finally withdrew in August 2021, and the Taliban recaptured Afghanistan. The 20-year war cost over 2,400 American military lives, hundreds of thousands of Afghan lives, and more than $2 trillion. The mission's symbolic victory could not end the broader conflict.</div>
+    </div>
+    <div class="effect-card long">
+      <div class="effect-label">Long-Term</div>
+      <div class="effect-title">Surveillance & Drone Warfare Normalized</div>
+      <div class="effect-desc">The tactics developed and refined during the bin Laden hunt — satellite surveillance, signals intelligence, drone warfare, and covert Special Operations raids — became the template for 21st-century U.S. counter-terrorism. The use of drones for targeted killings expanded dramatically, raising lasting debates about international law and civilian casualties.</div>
+    </div>
+    <div class="effect-card long">
+      <div class="effect-label">Long-Term</div>
+      <div class="effect-title">Global Counter-Terrorism Architecture</div>
+      <div class="effect-desc">The post-9/11 intelligence and security infrastructure — including the Department of Homeland Security, the PATRIOT Act, and expanded NSA surveillance — that made the mission possible remains in place. It permanently altered the balance between security and civil liberties in democratic societies around the world.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: CONNECTIONS -->
+<div id="sec-connections" class="section hidden">
+  <div class="section-label">Section 04</div>
+  <div class="section-title">Connections to Issues Today</div>
+  <p class="body-text">The threads of this event run directly into some of the most pressing global challenges of our time. Here's how Operation Neptune Spear connects to current events and ongoing issues:</p>
+
+  <div class="connection-item">
+    <div class="connection-icon">🌍</div>
+    <div>
+      <div class="connection-title">The Global Refugee Crisis</div>
+      <div class="connection-desc">The wars in Afghanistan, Iraq, and Syria — all entangled with the post-9/11 counter-terrorism era — produced millions of displaced people. When the U.S. withdrew from Afghanistan in 2021, approximately 76,000 Afghan refugees were evacuated to the United States alone. The ongoing global refugee crisis, with 100+ million people displaced worldwide, is deeply connected to conflicts set in motion by the 9/11 response and bin Laden's legacy. Western nations continue to debate their obligations to refugees from these war zones.</div>
+    </div>
+  </div>
+
+  <div class="connection-item">
+    <div class="connection-icon">📡</div>
+    <div>
+      <div class="connection-title">Government Surveillance & Digital Privacy</div>
+      <div class="connection-desc">The intelligence methods used to find bin Laden — including the NSA's bulk phone and internet surveillance programs — were revealed in 2013 by whistleblower Edward Snowden. Today's debates about government access to encrypted messages, facial recognition, and social media monitoring trace directly back to the legal frameworks created after 9/11. The question of how much privacy citizens must surrender for national security remains fiercely contested in legislatures and courts worldwide.</div>
+    </div>
+  </div>
+
+  <div class="connection-item">
+    <div class="connection-icon">⚔️</div>
+    <div>
+      <div class="connection-title">Islamophobia & Discrimination</div>
+      <div class="connection-desc">The association of 9/11 and al-Qaeda with Islam broadly led to a documented rise in hate crimes, discrimination, and marginalization of Muslim Americans and Muslims globally. This mirrors the pattern seen after other moments of national crisis — where entire communities are blamed for the actions of extremists. In 2021, the FBI reported a continued elevated rate of anti-Muslim hate crimes in the U.S. The targeting of an entire religion for the actions of a small extremist group parallels historical examples of racial and ethnic scapegoating, including Japanese American internment after Pearl Harbor.</div>
+    </div>
+  </div>
+
+  <div class="connection-item">
+    <div class="connection-icon">💰</div>
+    <div>
+      <div class="connection-title">Veterans' Rights & Long-Term War Costs</div>
+      <div class="connection-desc">The "Forever Wars" in Afghanistan and Iraq created a generation of veterans grappling with PTSD, traumatic brain injuries, and physical disabilities. The VA (Veterans Affairs) system has faced repeated crises in delivering care. The Costs of War Project at Brown University estimates the total cost of post-9/11 wars at over $8 trillion, including long-term veteran care. The SEAL operators who carried out the Neptune Spear mission have themselves spoken publicly about the psychological toll of years of combat deployments.</div>
+    </div>
+  </div>
+
+  <div class="connection-item">
+    <div class="connection-icon">🤖</div>
+    <div>
+      <div class="connection-title">Autonomous Weapons & AI in Warfare</div>
+      <div class="connection-desc">The drone warfare tactics normalized in the hunt for bin Laden and al-Qaeda have evolved into debates about fully autonomous weapon systems guided by artificial intelligence. Nations including the U.S., China, and Russia are now developing AI-driven weapons capable of selecting targets without human oversight. The ethical frameworks — and legal vacuums — created in the post-9/11 counter-terrorism era are now being applied to questions about AI on the battlefield, an issue that will define the next century of conflict.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: WHY IT MATTERS -->
+<div id="sec-why" class="section hidden">
+  <div class="section-label">Section 05</div>
+  <div class="section-title">Why Should We Care?</div>
+  <p class="body-text">This event is not just military history — it touches economics, civil rights, international law, psychology, and what it means to be an American in the 21st century. Here's why it belongs in every classroom:</p>
+
+  <div class="why-grid">
+    <div class="why-item">
+      <div class="why-num">01</div>
+      <div class="why-title">It Defined a Generation</div>
+      <div class="why-desc">Anyone born between 1985 and 2005 grew up in a post-9/11 world shaped by security lines, wars, and a constant awareness of terrorism. Understanding Neptune Spear means understanding why the world you grew up in looks the way it does.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">02</div>
+      <div class="why-title">It Shows How Intelligence Works</div>
+      <div class="why-desc">A decade of painstaking intelligence work — not brute military force — found bin Laden. This case study is a real-world lesson in how data, patience, and analytical thinking can solve problems that seem impossible.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">03</div>
+      <div class="why-title">It Raises Hard Ethical Questions</div>
+      <div class="why-desc">Was it legal to conduct a military operation inside Pakistan without consent? Was it ethical to shoot an unarmed person? Should the body have been photographed as proof? These questions have no easy answers — and that's exactly why they're worth discussing.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">04</div>
+      <div class="why-title">It Reminds Us That History Is Ongoing</div>
+      <div class="why-desc">Bin Laden's death did not end terrorism. ISIS emerged. Afghanistan fell again. The refugee crisis grew. Understanding that one pivotal event does not "solve" history teaches crucial critical thinking about cause, effect, and complexity.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">05</div>
+      <div class="why-title">It's About Democracy & Accountability</div>
+      <div class="why-desc">Who authorized this mission? Who was held accountable? What did the American public know and when? The debate over transparency, executive power, and the limits of what governments can do in secret is as alive today as ever.</div>
+    </div>
+    <div class="why-item">
+      <div class="why-num">06</div>
+      <div class="why-title">The Human Cost Demands Respect</div>
+      <div class="why-desc">Nearly 3,000 people died on 9/11. Hundreds of thousands more died in the wars that followed — civilians, soldiers, aid workers. Understanding this event means grappling with an enormous weight of human loss on all sides.</div>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-top:2rem">
+    <p><strong>The bottom line:</strong> Operation Neptune Spear is a lens through which you can examine terrorism, war, intelligence, executive power, international law, civil liberties, and the nature of justice — all at once. It is one of the most consequential events of the 21st century, and its effects are still unfolding.</p>
+  </div>
+</div>
+
+<!-- SECTION 6: IMAGES -->
+<div id="sec-images" class="section hidden">
+  <div class="section-label">Section 06</div>
+  <div class="section-title">Images, Maps & Visual Evidence</div>
+  <p class="body-text">Five key visual documents that help students understand the mission, its setting, and its historical context. All images are from public domain or declassified government sources.</p>
+
+  <div class="images-grid">
+    <div class="img-card">
+      <div class="img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="6" y="10" width="36" height="28" rx="2" stroke="#2a3550" stroke-width="2"/><circle cx="18" cy="20" r="4" stroke="#c8960c" stroke-width="1.5"/><path d="M6 34l10-10 6 6 8-10 12 10" stroke="#2a3550" stroke-width="1.5"/></svg>
+        <span style="font-size:.75rem;color:#2a3550;font-family:'Share Tech Mono',monospace;letter-spacing:1px">SITUATION ROOM</span>
+      </div>
+      <div class="img-caption">
+        <strong style="color:var(--text)">The Situation Room Photograph</strong> — President Obama, Vice President Biden, Secretary of State Clinton, and military advisors watch the raid unfold in real time. Taken by White House photographer Pete Souza, this image became one of the most iconic photographs of the 21st century.
+        <span class="img-source">Source: White House / Pete Souza — Public Domain · Wikimedia Commons</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="8" y="8" width="32" height="32" rx="1" stroke="#2a3550" stroke-width="2"/><rect x="14" y="20" width="8" height="12" stroke="#c8960c" stroke-width="1.5"/><rect x="26" y="14" width="8" height="18" stroke="#2a3550" stroke-width="1.5"/><path d="M12 38h24" stroke="#2a3550" stroke-width="1.5"/></svg>
+        <span style="font-size:.75rem;color:#2a3550;font-family:'Share Tech Mono',monospace;letter-spacing:1px">COMPOUND AERIAL</span>
+      </div>
+      <div class="img-caption">
+        <strong style="color:var(--text)">Aerial Satellite View — Abbottabad Compound</strong> — Satellite imagery of the compound showing its unusually high walls, restricted exterior, and large size compared to surrounding structures. The compound had no internet or phone lines — which initially raised intelligence suspicions.
+        <span class="img-source">Source: Wikimedia Commons — Osama bin Laden compound, Abbottabad, Pakistan · Public Domain</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><circle cx="24" cy="24" r="16" stroke="#2a3550" stroke-width="2"/><path d="M8 24h32M24 8v32" stroke="#2a3550" stroke-width="1" stroke-dasharray="3 2"/><path d="M24 24l-8-6M24 24l4 8" stroke="#c8960c" stroke-width="2" stroke-linecap="round"/></svg>
+        <span style="font-size:.75rem;color:#2a3550;font-family:'Share Tech Mono',monospace;letter-spacing:1px">OPERATION MAP</span>
+      </div>
+      <div class="img-caption">
+        <strong style="color:var(--text)">Operation Neptune Spear — Mission Map</strong> — SVG map showing key locations: Jalalabad (helicopter departure point), the Afghan-Pakistan border crossing, Abbottabad compound target, and the USS Carl Vinson in the Arabian Sea (burial location). Illustrates the operational scope of the mission.
+        <span class="img-source">Source: Wikimedia Commons — Operation Neptune Spear map · Public Domain / CIA</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><path d="M24 10l4 8h9l-7 6 3 9-9-6-9 6 3-9-7-6h9z" stroke="#c8960c" stroke-width="1.5" fill="none"/><rect x="10" y="34" width="28" height="4" rx="1" stroke="#2a3550" stroke-width="1.5"/></svg>
+        <span style="font-size:.75rem;color:#2a3550;font-family:'Share Tech Mono',monospace;letter-spacing:1px">9/11 MEMORIAL</span>
+      </div>
+      <div class="img-caption">
+        <strong style="color:var(--text)">9/11 Memorial, New York City</strong> — The National September 11 Memorial & Museum at the site of the World Trade Center, opened in 2011. The memorial's twin reflecting pools mark the footprints of the original towers. Understanding the scale and emotional weight of 9/11 is essential to understanding why Neptune Spear mattered.
+        <span class="img-source">Source: National September 11 Memorial & Museum / Public documentation</span>
+      </div>
+    </div>
+
+    <div class="img-card">
+      <div class="img-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none"><rect x="10" y="16" width="28" height="20" rx="1" stroke="#2a3550" stroke-width="2"/><path d="M10 22h28M18 22v14M30 22v14" stroke="#2a3550" stroke-width="1"/><path d="M18 16l6-6 6 6" stroke="#c8960c" stroke-width="1.5" fill="none"/></svg>
+        <span style="font-size:.75rem;color:#2a3550;font-family:'Share Tech Mono',monospace;letter-spacing:1px">COMPOUND DIAGRAM</span>
+      </div>
+      <div class="img-caption">
+        <strong style="color:var(--text)">Compound Floor Plan & Structure Diagram</strong> — Declassified diagrams released by the CIA and Department of Defense showing the interior layout of the Abbottabad compound: the main building, guest house, animal pens, security walls, and the third-floor room where bin Laden was located. Used in Congressional briefings.
+        <span class="img-source">Source: CIA / Department of Defense — Declassified · Public Domain</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="highlight-box" style="margin-top:1.5rem">
+    <p><strong>Research tip:</strong> Students can explore declassified documents, the actual Situation Room photo, and satellite imagery through the <strong>CIA Reading Room</strong> (cia.gov/readingroom), <strong>Wikimedia Commons</strong>, and the <strong>National Security Archive</strong> at George Washington University — all free and publicly accessible.</p>
+  </div>
+</div>
+
+</div>
+
+<script>
+function showSection(id){
+  document.querySelectorAll('[id^="sec-"]').forEach(s=>{
+    s.classList.remove('active-section');
+    s.classList.add('hidden');
+  });
+  document.getElementById('sec-'+id).classList.remove('hidden');
+  document.getElementById('sec-'+id).classList.add('active-section');
+  document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+</script>
